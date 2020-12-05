@@ -1,0 +1,79 @@
+
+// === SCREEN SIZES ===
+@mixin tiny-screens() {
+	@media only screen and (max-width: 320px) {
+		@content;
+	}
+}
+
+@mixin small-screens() {
+	@media only screen and (max-width: 480px) {
+		@content;
+	}
+}
+
+@mixin medium-screens() {
+	@media only screen and (max-width: 680px) {
+		@content;
+	}
+}
+
+@mixin large-screens() {
+	@media only screen and (max-width: 960px) {
+		@content;
+	}
+}
+
+// === BROWSER HACKS ===
+
+@mixin apply-to-ie-6 {
+	* html {
+		@content;
+	}
+}
+
+// ===FONT IMPORT ===
+
+@mixin google-font($font) {
+	$font: unquote($font);
+	@import url(https://fonts.googleapis.com/css?family=#{$font})
+}
+
+// === TEXT FORMATTING ===
+
+@mixin large-text {
+	font: {
+		size: 22px;
+		weight: bold;
+	}
+}
+
+@mixin fancy-links {
+	a {
+		font-style: italic;
+		text-decoration: none;
+	}
+}
+
+// === LAYOUT FORMATTING ===
+
+@mixin warning {
+	background-color: orange;
+	color: #fff;
+}
+
+@mixin boxshadow($shadows...) {
+	box-shadow: $shadows;
+	-moz-box-shadow: $shadows;
+	-webkit-box-shadow: $shadows;
+}
+
+@mixin rounded($radius: 6px) {
+	border-radius: $radius;
+}
+
+@mixin box($radius: 6px, $border: 1px solid #000) {
+	@include rounded($radius);
+	border: $border;
+}
+
